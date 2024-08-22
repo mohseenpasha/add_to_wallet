@@ -69,6 +69,7 @@ class PKAddPassButtonNativeView: NSObject, FlutterPlatformView {
     }
 
     @objc func passButtonAction() {
+        _invokeAddButtonPressed()
         var newPass: PKPass
         do {
             let data = NSData(bytes: &_pass, length: _pass.count)
@@ -87,7 +88,6 @@ class PKAddPassButtonNativeView: NSObject, FlutterPlatformView {
             return
         }
         rootVC.present(addPassViewController, animated: true)
-        _invokeAddButtonPressed()
     }
     
     func _invokeAddButtonPressed() {
